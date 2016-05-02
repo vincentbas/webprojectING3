@@ -104,7 +104,7 @@ try
 				} 
 				else 
 				{
-				   $erreur = "Votre adresse mail n'est pas valide !";
+				   $erreur = "Votre adresse email n'est pas valide !";
 				}
 			 } 
 			 else 
