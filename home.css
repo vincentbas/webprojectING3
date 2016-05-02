@@ -1,0 +1,123 @@
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Slabo27px-Regular';
+    src: url('Slabo27px-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'DKLemonYellowSun';
+    src: url('DKLemonYellowSun.otf');
+}
+@font-face {
+    font-family: 'Economica-Regular';
+    src: url('Economica-Regular.ttf');
+}
+
+
+body{
+    background-image:url("images/others/fond1.jpg");
+}
+
+h1{
+    font-family:'DKLemonYellowSun','helvetica';
+    text-align: center;
+    font-size: 140px;
+    color: #04054a;
+    position:absolute;
+    top:17%;
+    left:24%;
+    
+}
+
+h2{
+    font-family: 'DKLemonYellowSun';
+    text-align: center;
+    font-size: 60px;
+    color: white;
+    position: absolute;
+    top: 42%;
+    left: 25%;
+    width: 625px;
+}
+
+h3{
+    font-family: 'Economica-Regular','helvetica';
+    font-size: 50px;
+    color: white;
+    position: center;
+}
+
+#maliste{
+
+
+}
+
+#maliste2{
+
+}
+
+.list{
+    display: inline-block;
+    flex: 1.2;
+    position: absolute;
+    background-color: #04054a;
+    box-shadow: 0px 2px 5px #030828;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-size: 0.9em;
+    bottom:8%;
+    text-align: center;
+    width: 200px;
+    height: 600px;
+    font-family: 'Economica-Regular';
+}
+.list li{
+    text-align:center;
+    margin-left: 1px;
+
+}
+
+#connexion li{
+    padding-top: 40px;
+
+}
+
+
+#connexion{
+    
+left:5%;
+
+}
+
+
+#inscription{
+        right: 5%;
+
+}
+
+ul{
+    position: center;
+    padding-left: 0px;
+
+    list-style-type: none;
+}
+
+#go
+{
+    font-family: 'Economica-Regular';
+    font-size: 18px;
+     border-radius: 5px;
+    box-shadow: 0px 1px 3px white;
+}
+
+form input{
+     border-radius:5px;
+}
+select{
+     border-radius:5px;
+}

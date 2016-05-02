@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Slabo27px-Regular';
+    src: url('Slabo27px-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'DKLemonYellowSun';
+    src: url('DKLemonYellowSun.otf');
+}
+@font-face {
+    font-family: 'Economica-Regular';
+    src: url('Economica-Regular.ttf');
+}
+
+body{
+    background-image:url("images/others/fond2.jpg");
+    background-repeat: no-repeat;
+}
+
+
+h3{
+	    font-family:'DKLemonYellowSun','helvetica';
+	    font-size: 50px;
+    	color: #04054a;
+    	position: fixed;
+    	left: 6%;
+    	top:3%;
+    	margin-top: 3px;
+}
+
+h6{
+    font-family: 'DKLemonYellowSun';
+    font-size: 26.5px;
+    color: white;
+    position: fixed;
+    left: 6%;
+    top: 9%;
+    margin-top: 18px;
+}
+
+nav{
+	font-family: 'Economica-Regular';
+	position: fixed;
+	right: 3%;
+	top:3%;
+
+	margin-top: 3px;
+	padding-left:30px;
+	padding-right:60px;
+	background-color: #04054a;
+    box-shadow: 0px 2px 5px #030828;
+    border-radius: 5px;
+    font-size: 0.9em;
+
+}
+
+nav ul
+{
+    list-style-type: none;
+    display: flex;
+}
+
+nav li
+{
+    margin-right: 5px;
+    padding-left: 20px;
+    padding-right:20px;
+}
+
+nav a
+{
+    font-size: 25px;
+    color: white;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+nav a:hover
+{
+    color: #2ba0d1;
+    border-bottom: 3px solid #2ba0d1;
+}
+
+nav input{
+	 border-radius:5px;
+	 margin-top: 5px;
+}
+
+#here{
+    color: #2ba0d1;
+
+}
+
+
+#collection{
+	margin-left: 335px;
+	margin-top: 100px;
+}
+
+#collection li
+{
+	display: inline-block;
+	padding-top: 20px;
+	padding-bottom: 10px;	
+	padding-right: 30px;
+}
+
+#mylist{
+	font-family: 'Economica-Regular';
+    color: white;
+    font-size: 20px;
+    margin-left: 70px;
+    margin-top: 200px;
+    position: absolute;
+    list-style: none;
+    text-align: center;
+    position: fixed;
+}
+
+#mylist img
+{
+	border-radius:5px;
+	border: 3px solid white;
+}
+ #line1 img
+ {
+	border-radius:5px;
+	border: 5px solid #04054a;
+ }
+ 
