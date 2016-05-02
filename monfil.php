@@ -202,6 +202,16 @@ $like = $bdd->query('SELECT * FROM aime');
 					$result = $bdd->query("DELETE FROM follower WHERE id_user1 = '$id_user1' AND id_user2 = '$id_user2'");	
 			}
 			
+			//FONCTION COMMENTAIRES
+			if(isset($_POST['commentaire']))
+			{
+					$id_user = $getid;
+					$id_photo = $_POST['idphoto'];
+					$message = $_POST['commentaire'];
+					$result = $bdd->prepare('INSERT INTO comments (id_user, id_photo, contenu) VALUES (?, ?, ?)');
+					$result->execute(array($id_user, $id_photo, $message));
+			}
+			
 					// On affiche chaque entrée une à une
 					while ($photos_data = $photos->fetch())
 					{		
@@ -270,6 +280,40 @@ $like = $bdd->query('SELECT * FROM aime');
 									<input type="hidden"  name="exif_photo"  value="<?php echo $photos_data['id'] ?>">
 									<input type="submit" name="exif" id="Exif" value="Exif" onclick="javascript:open_infos();">
 								</form>
+								
+								<div id="com">
+								<?php 
+									$nb_comments = $bdd->query("SELECT * FROM comments WHERE id_photo= '$photos_data[id]'");
+									$nb_result = $nb_comments->rowCount();
+								?>
+								Nb: <?php echo $nb_result ?>
+								<form method="POST" action ="">
+									
+									<input type="hidden"  name="idphoto"  value="<?php echo $photos_data['id']?>">
+									<input type="textarea" name="commentaire" id="comment" placeholder="commentez...">
+								</form>
+
+									<table>
+									<?php 
+										for($i =0; $i < $nb_result; $i++){
+											$comment = $nb_comments->fetch();
+											$requete = $bdd->query("SELECT pseudo FROM users WHERE id = '$comment[1]'");
+											?>
+												<tr>	
+													<td>
+													<?php echo $comment['id_user'] ?> :
+													</td>
+													<td>
+													<?php echo $comment['contenu'] ?>
+													</td>
+												</tr>
+											<?php
+										}
+									?>
+									</table>
+
+								
+							</div>
 						
 							</h4>
 							
