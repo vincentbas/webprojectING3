@@ -104,19 +104,19 @@ $userinfo = $requser->fetch();
 	<ul id="collection">
 		<div id="line1">
 				<?php
-					$query = $bdd->query("SELECT * FROM albums WHERE id_user='$userinfo[id]'");
+					$query = $bdd->query("SELECT * FROM albums WHERE id_user='$userinfo[id]' OR id_user='0'");
 					while($album_data=$query->fetch())
 					{
 						$album_id=$album_data['id'];
 						$album_name=$album_data['Nom'];
 						
-						$photo = $bdd->query("SELECT * FROM photo WHERE proprio='$getid' AND album_id='$album_id'");
+						$photo = $bdd->query("SELECT * FROM photo WHERE proprio='$getid' AND album_id='$album_data[id]'");
 						$photos_data=$photo->fetch();
 						$cheminM = "photos/min/".$photos_data['img'];
 						$cheminG = "photos/".$photos_data['img'];
 				?>  
 				
-				<a class="zoombox zgallery1" href="<?php echo $cheminG;?>"> 
+				<a class="zoombox zgallery2" href="<?php echo $cheminG;?>"> 
 				<?php 
 					if(!empty($photos_data['img']))
 					{

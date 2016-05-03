@@ -139,7 +139,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
 		<li>choix album</li>		
 		<select name="choix_album" id="Album">
 		<?php
-		$query=$bdd->query('SELECT* FROM albums');
+		$query=$bdd->query("SELECT* FROM albums WHERE id_user= '$getid' OR Nom='default'");
 		while($album_data=$query->fetch())
 		{
 			$album_id=$album_data['id'];

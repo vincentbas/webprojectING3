@@ -235,7 +235,11 @@ $like = $bdd->query('SELECT * FROM aime');
 							<h4>
 							
 								Nom Image : <?php echo $photos_data['NomImage']; ?><br />
-								Utilisateur: <?php echo $photos_data['proprio']; ?><br />
+								Pseudo: <?php 
+											$req = $bdd->query("SELECT pseudo FROM users WHERE id = '$photos_data[proprio]'");
+											$pseudo = $req->fetch();
+											echo $pseudo['pseudo']; 
+										?><br />
 								Date: <?php echo $photos_data['date']; ?><br />
 								Heure : <?php echo $photos_data['heure']; ?><br/>
 								Lieu : <?php echo $photos_data['lieu']; ?><br/>
@@ -298,10 +302,11 @@ $like = $bdd->query('SELECT * FROM aime');
 										for($i =0; $i < $nb_result; $i++){
 											$comment = $nb_comments->fetch();
 											$requete = $bdd->query("SELECT pseudo FROM users WHERE id = '$comment[1]'");
+											$pseudo = $requete->fetch();
 											?>
 												<tr>	
 													<td>
-													<?php echo $comment['id_user'] ?> :
+													<?php echo $pseudo['pseudo'] ?> :
 													</td>
 													<td>
 													<?php echo $comment['contenu'] ?>

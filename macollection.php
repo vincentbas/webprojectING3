@@ -40,7 +40,7 @@ $photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid'  ORDER BY id D
 	<!--barre du haut-->
 	<h3> AMSTRAMGRAM </h3>
 	<h6> Bour et Bour et Ratatam !</h6>
-	
+	<!---->
 	<nav>
 		<ul>
 		<li>
@@ -78,9 +78,10 @@ $photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid'  ORDER BY id D
 	</ul>
 </nav>
 
-<!--liste de droite; il s'agit de la séléciton de l'affichage des photos-->
+
 	<ul id="mylist">
 		<?php 
+		//AFFICHAGE DES INFOS UTILISATEUR
 		if(!empty($userinfo['avatar']))
 		{
 			?>
@@ -101,24 +102,12 @@ $photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid'  ORDER BY id D
 			<?php echo $userinfo['pays'];?>
 		</li>
 		</br>
-		<form action="" method="post" enctype="multipart/form-data">
-			<input type="radio" name="bouton" value="Public"> Public
-			</br>
-			<input type="radio" name="bouton" value="Privee"> Privee
-			</br>
-			<input type="radio" name="bouton" value="Combo" checked="check"> Combo
-			</br>
-			<input type="submit" name="envoi" id="Importer" value="GO"></code>
-		</form>
-	</ul>
-	
-	<ul id="collection">
-		<div id="line1">
-			<?php
-			if (isset($_POST['envoi']))
+		<?php
+		//GESTION DES BOUTONS RADIOS ET SELECTION DES PHOTOS SELON LE PARAMETRE DE LA PHOTO
+		if(isset($_POST['envoi']))
 			{
 			$bouton_statut=$_POST['bouton'];
-			if($bouton_statut=='Privee'OR $bouton_statut=='Public')
+			if(isset($bouton_statut) AND $bouton_statut=='Privee'OR $bouton_statut=='Public')
 			{
 				$photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid' and parametre='$bouton_statut' ORDER BY id DESC");
 				$bouton_statut='Combo';
@@ -128,15 +117,31 @@ $photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid'  ORDER BY id D
 				$photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid'  ORDER BY id DESC");
 				$bouton_statut='Combo';
 			}
+		}
+		?>
+		
+		<form action="" method="post" enctype="multipart/form-data">
+			<input type="radio" name="bouton" value="Public"> Public
+			</br>
+			<input type="radio" name="bouton" value="Privee"> Privee
+			</br>
+			<input type="radio" name="bouton" value="Combo" > Combo
+			</br>
+			<input type="submit" name="envoi" id="Importer" value="GO"></code>
+		</form>
+	</ul>
+	
+	<ul id="collection">
+		<div id="line1">
+			<?php
 			
-			// On affiche chaque entrée une à une
 			while ($photos_data = $photos->fetch())
 			{
 				$cheminM = "photos/min/".$photos_data['img'];
 				$cheminG = "photos/".$photos_data['img'];
 			?>
 				
-				<a class="zoombox zgallery1" href="<?php echo $cheminG;?>"> 
+				<a class="zoombox zgallery2" href="<?php echo $cheminG;?>"> 
 				<?php 
 					if(!empty($photos_data['img']))
 					{
@@ -155,10 +160,9 @@ $photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid'  ORDER BY id D
 			?>
 						
 		</div>
+		
 	</ul>
-	<?php
-		}					
-			?>
+	
 </body>
 </html>
 <?php
