@@ -10,7 +10,6 @@ $getid = intval($_GET['id']);
 $requser = $bdd->prepare("SELECT * FROM users WHERE id ='$getid'");
 $requser->execute(array($getid));
 $userinfo = $requser->fetch();	
-$photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid'  ORDER BY id DESC");
 
 ?>
 
@@ -40,7 +39,7 @@ $photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid'  ORDER BY id D
 	<!--barre du haut-->
 	<h3> AMSTRAMGRAM </h3>
 	<h6> Bour et Bour et Ratatam !</h6>
-	<!---->
+	<!--E-->
 	<nav>
 		<ul>
 		<li>
@@ -120,6 +119,7 @@ $photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid'  ORDER BY id D
 		}
 		?>
 		
+		<!--DIFFERENTS BOUTONS PARAMETRES PHOTOS-->
 		<form action="" method="post" enctype="multipart/form-data">
 			<input type="radio" name="bouton" value="Public"> Public
 			</br>
@@ -134,7 +134,7 @@ $photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid'  ORDER BY id D
 	<ul id="collection">
 		<div id="line1">
 			<?php
-			
+			$photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid'  ORDER BY id DESC");
 			while ($photos_data = $photos->fetch())
 			{
 				$cheminM = "photos/min/".$photos_data['img'];
@@ -146,14 +146,14 @@ $photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid'  ORDER BY id D
 					if(!empty($photos_data['img']))
 					{
 				?>
-				<div id="view_box">
+				
 					<img id="photos" src="<?php echo $cheminM ?>" style="width:250px;height:250px;"/>
-					<a href="supprime_photos.php?id=<?= $photos_data['id']?>">Supprimer</a>
-					<a href="">Modifier</a>
-				<div id="view_box">
 				<?php
 					}
 				?>
+					<a href="supprime_photos.php?id=<?= $photos_data['id']?>">Supprimer</a>
+					<a href="">Modifier</a>
+				
 				</a> 
 			<?php
 			}
