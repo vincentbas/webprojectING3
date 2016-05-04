@@ -249,18 +249,21 @@ $like = $bdd->query('SELECT * FROM aime');
 
 									<input type="hidden"  name="idphoto"  value="<?php echo $photos_data['id'] ?>">
 									<?php
-									$photolike = $bdd->query("SELECT * FROM aime WHERE id_photo = '$photos_data[id]' AND id_user = '$getid'"); 
+									$photolike = $bdd->query("SELECT * FROM aime WHERE id_photo = '$photos_data[id]'"); 
 									$photolikenum = $photolike->rowCount();
 									if($photolikenum == 0)
 									{
-									?>
+									?>										
 										<input type="submit" name="jaime" id="Like" value="Like">
+										<?php echo $photolikenum ?>
 									<?php
 									}
 									else 
 									{
-									?>
-										<input type="submit" name="unlike" id="UnLike" value="UnLike"><?php
+									?>				
+										<input type="submit" name="unlike" id="UnLike" value="UnLike">
+										<?php echo $photolikenum ?>
+									<?php
 									}
 									?>
 									
@@ -290,9 +293,8 @@ $like = $bdd->query('SELECT * FROM aime');
 									$nb_comments = $bdd->query("SELECT * FROM comments WHERE id_photo= '$photos_data[id]'");
 									$nb_result = $nb_comments->rowCount();
 								?>
-								Nb: <?php echo $nb_result ?>
+								Commentaires: <?php echo $nb_result ?>
 								<form method="POST" action ="">
-									
 									<input type="hidden"  name="idphoto"  value="<?php echo $photos_data['id']?>">
 									<input type="textarea" name="commentaire" id="comment" placeholder="commentez...">
 								</form>
