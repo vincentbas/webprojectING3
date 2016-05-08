@@ -44,26 +44,6 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
 			$('a.zoombox').zoombox();
 		});
 		</script> 
-		
-		<script type="text/javascript">
-		<!--FONCTION QUI PERMET D'AFFICHER ET DE CENTRER UNE FENETRE POP-UP-->
-			function open_infos()
-			{
-				width = 700;
-				height = 600;
-				if(window.innerWidth)
-				{
-					var left = (window.innerWidth-width)/2;
-					var top = (window.innerHeight-height)/2;
-				}
-				else
-				{
-					var left = (document.body.clientWidth-width)/2;
-					var top = (document.body.clientHeight-height)/2;
-				}
-				window.open('exif.php','nom_de_ma_popup','menubar=no, scrollbars=no, top='+top+', left='+left+', width='+width+', height='+height+'');
-			}
-		</script>
 	</head>
 
 	<body>
@@ -311,9 +291,12 @@ if(isset($_GET['id']) AND $_GET['id'] > 0)
 											
 											<!--BOUTONS EXIF-->
 											<input type="hidden"  name="exif_photo"  value="<?php echo $photos_data['id'] ?>">
+											
 											<!--(onclick()):APPEL D'UNE FONCTION JavaSript QUI OUVRE UNE FENETRE POP-UP-->
-											<input type="submit" name="exif" id="Exif" value="Exif" onclick="javascript:open_infos();">
+											<input type="image" src="images/others/exif.png" style="width:40px" name="unlike" id="UnLike" value="UnLike" onclick="window.open('exif.php?nom=<?php echo $photos_data['img']?>','wclose','width=650,height=280,toolbar=no,status=no,left=400,top=250')"/>
+											
 										</form>
+										
 									</div>
 										<div id="com">
 											</br>
