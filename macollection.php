@@ -1,169 +1,97 @@
 <?php
-
+//RECUPERATION DES VARIABLES DE SESSION
 session_start();
-include_once('cookie_connect.php');
-//Connexion base de données
-$bdd = new PDO('mysql:host=localhost;dbname=phplogin', 'root', '');	
-if(isset($_GET['id']) AND $_GET['id'] > 0) 
-{
-$getid = intval($_GET['id']);
-$requser = $bdd->prepare("SELECT * FROM users WHERE id ='$getid'");
-$requser->execute(array($getid));
-$userinfo = $requser->fetch();	
+include_once('cookie_connect.php');	
 
+try
+{
+	//CONNEXION BDD
+	$bdd = new PDO('mysql:host=localhost;dbname=phplogin', 'root', '');
+}
+catch(Exception $e)
+{
+	die('Erreur : '.$e->getMessage());
+}
+
+//TEST: VERIFICATION QUE LA VARIABLE ID EXISTE ET SUPERIEUR A 0
+if(isset($_GET['id']) AND $_GET['id'] > 0)
+{
+	//SECURISER LA VARIABLE CONVERSION DE CE MET L'UTILISATEUR EN NOMBRE
+	$getid = intval($_GET['id']);
+	
+	//REQUETE: SELECTIONNE LES INFORMATIONS DE L'UTILISATEUR CONNECTE
+	$requser = $bdd->prepare("SELECT * FROM users WHERE id ='$getid'");
+	$requser->execute(array($getid));
+	
+	//(fetch()): FONCTION QUI RECUPERE LES INFOS PROPPRE A L'UTILISATEUR CONNECTE
+	$userinfo = $requser->fetch();
+
+	//REQUETE: SELECTIONNE DANS L'ORDRE DECROISSANT TOUTES LES PHOTOS OU LE PROPRIETAIRE DE LA PHOTO CORRESPOND A L'UTILISATEUR CONNECTE
+	$photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid'  ORDER BY id DESC");	
 ?>
 
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title> AMSTRAGRAM </title>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="macollection.css"/>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-	<script type="text/javascript" src="zoombox/zoombox.js"></script>
-	<link href="zoombox/zoombox.css" rel="stylesheet" type="text/css" media="screen" />
-  
-
-	<script type="text/javascript">
-	jQuery(function($)
-	{
-		$('a.zoombox').zoombox();
-	});
-	</script> 
-</head>
+	<head>
+		<title> AMSTRAGRAM </title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="macollection.css"/>
+	</head>
 
 
-<body>
+	<body>
+		<!--barre du haut-->
 
-	<!--barre du haut-->
-	<h3> AMSTRAMGRAM </h3>
-	<h6> Bour et Bour et Ratatam !</h6>
-	<!--E-->
-	<nav>
-		<ul>
-		<li>
-			<a href="ajouter.php">ajouter</a>
-		</li>
+		<h3> AMSTRAMGRAM </h3>
+		<h6> Bour et Bour et Ratatam !</h6>
 		
-		<li>
-			<a href="album.php">album</a>
-		</li>
+		<!--MENU-->
+		<nav>
+			<ul>
+				<li>
+					<a href="ajouter.php">ajouter</a>
+				</li>
 
-		<li>
-			<a href="monfil.php">mon fil</a>
-		</li>
+				<li>
+					<a href="monfil.php">mon fil</a>
+				</li>
 
-		<li>
-			<a href="macollection.php">ma collection</a>
-		</li>
-		
-		<li>
-			<a href="mesalbums.php">mes albums</a>
-		</li>
+				<li>
+					<a href="macollection.php" id="here">ma collection</a>
+				</li>
 
-		<li>
-			<a href="parametres.php">mes parametres</a>
-		</li>
-		
-		<li>
-			<input type="search" name="q" placeholder="rechercher"/>
-			<input type="submit" value="OK"/>
-		</li>
+				<li>
+					<a href="parametres.php">mes parametres</a>
+				</li>
 
-		<li>
-			<a href="home.php">deconnexion</a>
-		</li>
-	</ul>
-</nav>
-
-
-	<ul id="mylist">
-		<?php 
-		//AFFICHAGE DES INFOS UTILISATEUR
-		if(!empty($userinfo['avatar']))
-		{
-			?>
-			<img src="users/avatar/<?php echo $userinfo['avatar'];?>" style="width:150px;height:150px;"/>
-			<?php
-		}
-		?>
-		<li>
-			Espace membre
-		</li>
-		<li>
-			<?php echo $userinfo['pseudo'];?>
-		</li>
-		<li>
-			<?php echo $userinfo['date_naissance'];?>
-		</li>
-		<li>
-			<?php echo $userinfo['pays'];?>
-		</li>
-		</br>
-		<?php
-		//GESTION DES BOUTONS RADIOS ET SELECTION DES PHOTOS SELON LE PARAMETRE DE LA PHOTO
-		if(isset($_POST['envoi']))
-			{
-			$bouton_statut=$_POST['bouton'];
-			if(isset($bouton_statut) AND $bouton_statut=='Privee'OR $bouton_statut=='Public')
-			{
-				$photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid' and parametre='$bouton_statut' ORDER BY id DESC");
-				$bouton_statut='Combo';
-			}
-			else
-			{
-				$photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid'  ORDER BY id DESC");
-				$bouton_statut='Combo';
-			}
-		}
-		?>
-		
-		<!--DIFFERENTS BOUTONS PARAMETRES PHOTOS-->
-		<form action="" method="post" enctype="multipart/form-data">
-			<input type="radio" name="bouton" value="Public"> Public
-			</br>
-			<input type="radio" name="bouton" value="Privee"> Privee
-			</br>
-			<input type="radio" name="bouton" value="Combo" > Combo
-			</br>
-			<input type="submit" name="envoi" id="Importer" value="GO"></code>
-		</form>
-	</ul>
-	
-	<ul id="collection">
-		<div id="line1">
-			<?php
-			$photos = $bdd->query("SELECT * FROM photo WHERE proprio='$getid'  ORDER BY id DESC");
-			while ($photos_data = $photos->fetch())
-			{
-				$cheminM = "photos/min/".$photos_data['img'];
-				$cheminG = "photos/".$photos_data['img'];
-			?>
+				<li>
+					<form method="POST" action="">
+						<input type="search" name="q" placeholder="rechercher" id="search"/>
+						<input type="submit" value="OK" id="search_button"/>
+					</form>
+				</li>
 				
-				<a class="zoombox zgallery2" href="<?php echo $cheminG;?>"> 
-				<?php 
-					if(!empty($photos_data['img']))
-					{
-				?>
-				
-					<img id="photos" src="<?php echo $cheminM ?>" style="width:250px;height:250px;"/>
-				<?php
-					}
-				?>
-					<a href="supprime_photos.php?id=<?= $photos_data['id']?>">Supprimer</a>
-					<a href="">Modifier</a>
-				
-				</a> 
-			<?php
-			}
-			?>
-						
-		</div>
+				<li>
+					<a href="home.php">deconnexion</a>
+				</li>
+
+			</ul>
+		</nav>
 		
-	</ul>
-	
-</body>
+		<!--CHOIX ENTRE LA PAGE MES PHOTOS OU MES ALBUMS-->
+		<div id="choice">
+			<ul>
+				<li id="choice1">
+					<a href="mesimages.php">Mes Photos</a>
+				</li>
+
+				<li id="choice2">
+					<a href="mesalbums.php">Mes Albums</a>
+				</li>
+			</ul>
+		</div>		
+	</body>
 </html>
 <?php
 }
