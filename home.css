@@ -19,46 +19,38 @@
 
 
 body{
-    background-image:url("images/others/fond1.jpg");
+    background-image:url("images/others/ciel.jpg");
+	background-attachment: fixed;
 }
 
 h1{
     font-family:'DKLemonYellowSun','helvetica';
     text-align: center;
-    font-size: 140px;
+    font-size: 850%;
     color: #04054a;
     position:absolute;
     top:17%;
-    left:24%;
+    left:28%;
     
 }
 
 h2{
     font-family: 'DKLemonYellowSun';
     text-align: center;
-    font-size: 60px;
+    font-size: 350%;
     color: white;
     position: absolute;
-    top: 42%;
-    left: 25%;
-    width: 625px;
-}
+    top: 45%;
+    left: 31%;
+    width: 40%;}
 
 h3{
     font-family: 'Economica-Regular','helvetica';
-    font-size: 50px;
+    font-size: 350%;
     color: white;
     position: center;
 }
 
-#maliste{
-
-
-}
-
-#maliste2{
-
-}
 
 .list{
     display: inline-block;
@@ -67,12 +59,12 @@ h3{
     background-color: #04054a;
     box-shadow: 0px 2px 5px #030828;
     border-radius: 5px;
-    padding: 10px;
+    padding: 1%;
     color: white;
     font-size: 0.9em;
     bottom:8%;
     text-align: center;
-    width: 200px;
+    width: 15%;
     height: 600px;
     font-family: 'Economica-Regular';
 }
@@ -83,27 +75,30 @@ h3{
 }
 
 #connexion li{
-    padding-top: 40px;
+    padding-top: 15%;
 
 }
 
 
 #connexion{
     
+top:5%;
 left:5%;
 
 }
 
 
 #inscription{
-        right: 5%;
+
+top:5%;
+ right: 5%;
 
 }
+
 
 ul{
     position: center;
     padding-left: 0px;
-
     list-style-type: none;
 }
 
@@ -111,13 +106,56 @@ ul{
 {
     font-family: 'Economica-Regular';
     font-size: 18px;
-     border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px white;
+}
+#renitialiser
+{
+    font-family: 'Economica-Regular';
+    font-size: 18px;
+    border-radius: 5px;
     box-shadow: 0px 1px 3px white;
 }
 
 form input{
      border-radius:5px;
 }
-select{
+form select{
      border-radius:5px;
 }
+    @media all and (max-width: 1024px)
+{
+
+    h1
+    {
+    font-size: 40pt; 
+    left: 40%;
+    }
+
+    h2
+    {
+    font-size: 20pt;
+    left: 33%;
+    top: 28%;
+    }
+
+    h3
+    {
+        font-size: 15pt;
+    } 
+    #connexion
+    {
+        left: 0px;
+    }
+
+    #inscription
+    {
+        right: 0px;
+    }
+
+    .list{
+        width: 150px;
+    }
+}
+
+    

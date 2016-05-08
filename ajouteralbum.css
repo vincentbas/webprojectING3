@@ -19,7 +19,7 @@
 
 body{
     background-image:url("images/others/fond1.jpg");
-    background-attachment: fixed;
+	background-attachment: fixed;
 }
 
 
@@ -30,7 +30,7 @@ h3{
         position: fixed;
         left: 6%;
         top:3%;
-        margin-top: 0%;
+        margin-top: 3px;
 }
 
 h6{
@@ -40,7 +40,7 @@ h6{
     position: fixed;
     left: 6%;
     top: 9%;
-    margin-top: 1%;
+    margin-top: 18px;
 }
 
 nav{
@@ -48,28 +48,22 @@ nav{
     position: fixed;
     right: 1%;
     top:3%;
-    margin-top: 0%;
-    padding-left:0%;
-    padding-right:0%;
+    margin-top: 3px;
+    padding-left:0px;
+    padding-right:0px;
     background-color: #04054a;
     box-shadow: 0px 2px 5px #030828;
     border-radius: 5px;
     font-size: 1em;
-    z-index: 1;
+
+
 }
 
 #search
 {
-    margin-top: 2%;
-    border-radius: 5px;
-}
+    margin-top: 5px;
 
-#search_button
-{
-    margin-top: 2%;
-    border-radius: 5px;
 }
-
 
 nav ul
 {
@@ -79,7 +73,7 @@ nav ul
 
 nav li
 {
-    margin-right: 0%;
+    margin-right: 1px;
     padding-left: 20px;
     padding-right:20px;
 }
@@ -104,73 +98,33 @@ nav a:hover
 
 }
 
-#mylist{
-	color: white;
-	font-family: 'Economica-Regular';
-	text-decoration: none;
-	list-style: none;
-	font-size: 20px;
-	text-align: center;
-	background-color: #04054a;
-	margin-top: 12%;
-	margin-left: 47%;
-	width: 19%;
-	position: relative;
-	box-shadow: 0px 2px 5px #1c1a19;
+#album
+{
+    color: white;
+    font-family: 'Economica-Regular';
+    text-decoration: none;
+    list-style: none;
+    font-size: 40px;
+    text-align: center;
+    background-color: #04054a;
+    width: 300px;
+    position: absolute;
+    box-shadow: 0px 2px 5px #1c1a19;
     border-radius: 5px;
-    padding: 1%;
+    padding: 10px;
+    display: inline-block;
+    margin-top: 20%;
+    margin-left: 38%;
 }
-
-form input{
-	 border-radius:5px;
+#search{
+    border-radius: 5px;
 }
-
-select{
-	 border-radius:5px;
-}
-
-    @media all and (max-width: 1024px)
+#search_button
 {
-    nav
-    {
-        width: auto;
-        text-align: left;
-    }
-    
-    nav ul
-    {
-        flex-direction: column;
-    }
-
-    nav li
-    {
-        padding-left: 4px;
-    }
-    
-    nav a
-    {
-        font-size: 1.1em;
-    }
-    
-    nav a:hover
-    {
-        border-bottom: 0;
-    }
-
-    #mylist{
-        width: 150px;
-    }
+    margin-top: 2%;
+    border-radius: 5px;
 }
-
-
-@media screen and (max-width: 570px)
+#avatar
 {
-    h3{
-        display: none;
-    }
-    h6{
-        display: none;
-    }
-
+	border-radius:5%;
 }
-

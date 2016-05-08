@@ -70,7 +70,6 @@ nav{
     border-radius: 5px;
 }
 
-
 nav ul
 {
     list-style-type: none;
@@ -104,30 +103,82 @@ nav a:hover
 
 }
 
+form input{
+     border-radius:5px;
+}
+select{
+     border-radius:5px;
+}
+
+.pt{
+    width: 600px;
+    height: auto;
+    background-color: #04054a;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-left: 40%;
+    box-shadow: 0px 2px 5px #030828;
+    border-radius: 5px;
+    font-family: 'Economica-Regular';
+    color: white;
+    background:url("images/others/wood.jpg") repeat fixed 100%;
+    background-size: 10%;
+}
+
+
 #mylist{
-	color: white;
 	font-family: 'Economica-Regular';
+    color: white;
+    font-size: 20px;
+    margin-left: 5%;
+    margin-top: 6%;
+    position: absolute;
+    list-style: none;
+    text-align: center;
+    position: fixed;
 	text-decoration: none;
-	list-style: none;
-	font-size: 20px;
-	text-align: center;
 	background-color: #04054a;
-	margin-top: 12%;
-	margin-left: 47%;
-	width: 19%;
-	position: relative;
+	width: 15%;
 	box-shadow: 0px 2px 5px #1c1a19;
     border-radius: 5px;
     padding: 1%;
+	
 }
 
-form input{
-	 border-radius:5px;
+
+.com{
+    float: right;
+    padding-right: 10%;
+    padding-top: 5%;
 }
 
-select{
-	 border-radius:5px;
+#text{
+    float: right;
+    text-align: center;
+    padding-right: 3%;
+    padding-top: 8%;
+
 }
+
+#legende
+{
+    font-size: 14pt;
+    padding-top: 0%;
+}
+
+#infos
+{
+    font-size: 12px;
+    padding-top: 1%;
+}
+
+#commentaires{
+
+    border-radius: 5px;
+
+
+}
+
 
     @media all and (max-width: 1024px)
 {
@@ -157,9 +208,22 @@ select{
         border-bottom: 0;
     }
 
-    #mylist{
+	#mylist{
         width: 150px;
     }
+	
+    .pt
+    {
+        border-bottom: 0;
+        margin-right: 0px;
+    }
+
+    .pt #text
+    {
+        display: none;
+    }
+   
+    
 }
 
 
@@ -172,5 +236,11 @@ select{
         display: none;
     }
 
-}
+    #mylist{
+        margin-top: 300px;
+    }
 
+    .pt{
+        display: none;
+    }
+}

@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('Montserrat-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Slabo27px-Regular';
+    src: url('Slabo27px-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'DKLemonYellowSun';
+    src: url('DKLemonYellowSun.otf');
+}
+@font-face {
+    font-family: 'Economica-Regular';
+    src: url('Economica-Regular.ttf');
+}
+
+body{
+    background-image:url("images/others/bloc_home.jpg");
+    background-attachment: fixed;
+}
+
+
+
+
+

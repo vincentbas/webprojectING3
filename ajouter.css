@@ -19,7 +19,7 @@
 
 body{
     background-image:url("images/others/fond1.jpg");
-    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 
@@ -30,7 +30,7 @@ h3{
     	position: fixed;
     	left: 6%;
     	top:3%;
-    	margin-top: 3px;
+    	margin-top: 0%;
 }
 
 h6{
@@ -40,7 +40,7 @@ h6{
     position: fixed;
     left: 6%;
     top: 9%;
-    margin-top: 18px;
+    margin-top: 1%;
 }
 
 nav{
@@ -48,21 +48,27 @@ nav{
 	position: fixed;
 	right: 1%;
 	top:3%;
-	margin-top: 3px;
-	padding-left:0px;
-	padding-right:0px;
+	margin-top: 0%;
+	padding-left:0%;
+	padding-right:0%;
 	background-color: #04054a;
     box-shadow: 0px 2px 5px #030828;
     border-radius: 5px;
     font-size: 1em;
-
-
+    z-index: 1;
 }
 
 #search
 {
-    margin-top: 5px;
+    margin-top: 2%;
+    border-radius: 5px;
 
+}
+
+#search_button
+{
+    margin-top: 2%;
+    border-radius: 5px;
 }
 
 nav ul
@@ -73,7 +79,7 @@ nav ul
 
 nav li
 {
-    margin-right: 1px;
+    margin-right: 0%;
     padding-left: 20px;
     padding-right:20px;
 }
@@ -99,38 +105,109 @@ nav a:hover
 }
 
 
-#ajout
+#choice li
 {
-	color: white;
-	font-family: 'Economica-Regular';
-	text-decoration: none;
-	list-style: none;
-	font-size: 20px;
-	text-align: center;
-	background-color: #04054a;
-	margin-top: 180px;
-	margin-left: 45%;
-	width: 250px;
-	position: relative;
-	box-shadow: 0px 2px 5px #1c1a19;
+    
+    font-family: 'Economica-Regular';
+    text-decoration: none;
+    list-style: none;
+    font-size: 40px;
+    text-align: center;
+    background-color: #04054a;
+    width: 25%;
+    position: absolute;
+    box-shadow: 0px 2px 5px #1c1a19;
     border-radius: 5px;
-    padding: 10px;
+    padding: 0.5%;
+    display: inline-block;
 }
 
-#check{
-	font-size: 20px;
-} 
+#choice1 
+{
+    margin-top: 25%;
+    margin-left: 17%;
+}
 
-#search{
+#choice2
+{
+    margin-top: 25%;
+    margin-left: 50%;
+}
+
+#choice1 a, #choice2 a
+{
+        color: white;
+}
+
+
+#choice1:hover{
+    color: #2ba0d1;
+    border-bottom: 5px solid #2ba0d1;
+}
+#choice2:hover{
+    color: #2ba0d1;
+    border-bottom: 5px solid #2ba0d1;
+}
+
+
+    @media all and (max-width: 1024px)
+{
+    nav
+    {
+        width: auto;
+        text-align: left;
+    }
+    
+    nav ul
+    {
+        flex-direction: column;
+    }
+
+    nav li
+    {
+        padding-left: 4px;
+    }
+    
+    nav a
+    {
+        font-size: 1.1em;
+    }
+    
+    nav a:hover
+    {
+        border-bottom: 0;
+    }
+
 
 }
 
-form input{
-	 border-radius:5px;
+
+@media screen and (max-width: 570px)
+{
+    h3{
+        display: none;
+    }
+    h6{
+        display: none;
+    }
+
 }
-select{
-	 border-radius:5px;
-}
-textarea{
-	 border-radius:5px;
+
+
+@media screen and (max-width: 900px)
+{
+    
+        div
+    {
+        width: auto;
+        text-align: left;
+    }
+    
+    div li
+    {
+        flex-direction: column;
+    }
+
+   
+
 }

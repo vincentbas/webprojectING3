@@ -19,7 +19,7 @@
 
 body{
     background-image:url("images/others/fond1.jpg");
-    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 
@@ -43,6 +43,13 @@ h6{
     margin-top: 1%;
 }
 
+form input{
+     border-radius:5px;
+}
+select{
+     border-radius:5px;
+}
+
 nav{
     font-family: 'Economica-Regular';
     position: fixed;
@@ -62,14 +69,8 @@ nav{
 {
     margin-top: 2%;
     border-radius: 5px;
-}
 
-#search_button
-{
-    margin-top: 2%;
-    border-radius: 5px;
 }
-
 
 nav ul
 {
@@ -104,29 +105,48 @@ nav a:hover
 
 }
 
+#spaceblank{
+    color: white;
+    font-family: 'Economica-Regular';
+    text-decoration: none;
+    list-style: none;
+    font-size: 40px;
+    text-align: center;
+    background-color: #04054a;
+    width: 300px;
+    position: absolute;
+    box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    margin-top: 20%;
+    margin-left: 38%;
+}
+
 #mylist{
-	color: white;
-	font-family: 'Economica-Regular';
+   font-family: 'Economica-Regular';
+    color: white;
+    font-size: 20px;
+    margin-left: 5%;
+    margin-top: 6%;
+    position: absolute;
+    list-style: none;
+    text-align: center;
+    position: fixed;
 	text-decoration: none;
-	list-style: none;
-	font-size: 20px;
-	text-align: center;
 	background-color: #04054a;
-	margin-top: 12%;
-	margin-left: 47%;
-	width: 19%;
-	position: relative;
+	width: 15%;
 	box-shadow: 0px 2px 5px #1c1a19;
     border-radius: 5px;
     padding: 1%;
 }
 
-form input{
-	 border-radius:5px;
-}
+#tri{
 
-select{
-	 border-radius:5px;
+    position: absolute;
+    margin-top: 40%;
+    margin-left: 8%;
+    border-radius: 5px;
 }
 
     @media all and (max-width: 1024px)
@@ -157,8 +177,8 @@ select{
         border-bottom: 0;
     }
 
-    #mylist{
-        width: 150px;
+    #tri{
+        display: none;
     }
 }
 
@@ -172,5 +192,9 @@ select{
         display: none;
     }
 
-}
+    #mylist{
 
+        margin-top:300px;
+    }
+
+}
