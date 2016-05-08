@@ -18,20 +18,20 @@
 }
 
 body{
-    background-image:url("images/others/fond2.jpg");
-    background-repeat: no-repeat;
+    background-image:url("images/others/fond1.jpg");
+    background-attachment: fixed;
 }
 
 
+
 h3{
-	    font-family:'DKLemonYellowSun','helvetica';
-	    font-size: 50px;
-    	color: #04054a;
-    	position: fixed;
-    	left: 6%;
-    	top:3%;
-    	margin-top: 3px;
-        z-index: 1;
+        font-family:'DKLemonYellowSun','helvetica';
+        font-size: 50px;
+        color: #04054a;
+        position: fixed;
+        left: 6%;
+        top:3%;
+        margin-top: 0%;
 }
 
 h6{
@@ -41,8 +41,7 @@ h6{
     position: fixed;
     left: 6%;
     top: 9%;
-    margin-top: 18px;
-    z-index: 1;
+    margin-top: 1%;
 }
 
 nav{
@@ -50,21 +49,32 @@ nav{
     position: fixed;
     right: 1%;
     top:3%;
-    margin-top: 3px;
-    padding-left:0px;
-    padding-right:0px;
+    margin-top: 0%;
+    padding-left:0%;
+    padding-right:0%;
     background-color: #04054a;
     box-shadow: 0px 2px 5px #030828;
     border-radius: 5px;
     font-size: 1em;
-
-
-}
-nav input{
-	 border-radius:5px;
-	 margin-top: 5px;
+    z-index: 1;
 }
 
+#search
+{
+    margin-top: 2%;
+    border-radius: 5px;
+}
+
+#search_button
+{
+    margin-top: 2%;
+    border-radius: 5px;
+}
+
+#avatar
+{
+	border-radius:5%;
+}
 
 nav ul
 {
@@ -74,11 +84,10 @@ nav ul
 
 nav li
 {
-    margin-right: 1px;
+    margin-right: 0%;
     padding-left: 20px;
     padding-right:20px;
 }
-
 
 nav a
 {
@@ -94,30 +103,25 @@ nav a:hover
     border-bottom: 3px solid #2ba0d1;
 }
 
+
 #here{
     color: #2ba0d1;
 
 }
 
-
-
 .pt{
-    width: auto;
+    width: 600px;
     height: auto;
     background-color: #04054a;
-    margin-top: 100px;
-    margin-bottom: 110px;
-    margin-left: 35%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-left: 40%;
     box-shadow: 0px 2px 5px #030828;
     border-radius: 5px;
     font-family: 'Economica-Regular';
     color: white;
-    width: 600px;
     background:url("images/others/wood.jpg") repeat fixed 100%;
-    background-size: 200px;
-    
-
-
+    background-size: 10%;
 }
 
 
@@ -125,68 +129,112 @@ nav a:hover
     font-family: 'Economica-Regular';
     color: white;
     font-size: 20px;
-    margin-left: 70px;
-    margin-top: 200px;
+    margin-left: 5%;
+    margin-top: 17%;
     position: absolute;
     list-style: none;
     text-align: center;
     position: fixed;
+	text-decoration: none;
+	background-color: #04054a;
+	width: 15%;
+	box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+    padding: 1%;
 }
 
-#ap1{
-    margin-left: 1100px;
-    margin-top: 100px;
-    position: absolute;
 
-}
-
-#ap2{
-    margin-left: 350px;
-    margin-top: 400px;
-    position: absolute;
-
-}
-
-#ap3{
-    margin-left: 1100px;
-    margin-top: 700px;
-    position: absolute;
-
-}
-
-#ap4{
-    margin-left: 350px;
-    margin-top: 1000px;
-    position: absolute;
-
-}
-
-#ap5{
-    margin-left: 1100px;
-    margin-top: 1100px;
-    position: absolute;
-
-}
-
-.listphotos h4{
-        font-size: 20px;
-        text-align: center;
-}
-.listphotos p{
-    padding-top: 50px;
-}
-
-#text1{
+#text{
     float: right;
-    padding-right: 50px;
-    padding-top: 30px;
+    text-align: center;
+    padding-top: 0px;
+    padding-right: 3%;
 }
 
-#mylist img
+#infos{
+    padding-top: 0%;
+}
+
+#addcom{
+    padding-top: 0%;
+}
+
+#commentaires{
+
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+    @media all and (max-width: 1024px)
 {
-	border-radius:5px;
-	border: 3px solid white;
+    nav
+    {
+        width: auto;
+        text-align: left;
+    }
+    
+    nav ul
+    {
+        flex-direction: column;
+    }
+
+    nav li
+    {
+        padding-left: 4px;
+    }
+    
+    nav a
+    {
+        font-size: 1.1em;
+    }
+    
+    nav a:hover
+    {
+        border-bottom: 0;
+        margin-right: 0px;
+    }
+
+    #mylist{
+        width: 150px;
+    }
+
+    .listphotos p,h4
+    {
+        display: none;
+    }
+
+    #commentaires
+    {
+        visibility:hidden;
+    }
+
+    article div
+    {
+        display: none;
+    }
+
+
 }
 
+
+@media screen and (max-width: 570px)
+{
+    h3{
+        display: none;
+    }
+    h6{
+        display: none;
+    }
+    #mylist{
+
+        margin-top:300px;
+    }
+    article 
+    {
+       display: none; 
+    }
+
+}
 
 
